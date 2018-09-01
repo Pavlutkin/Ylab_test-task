@@ -1,0 +1,48 @@
+{
+  "name": "spa",
+  "version": "1.0.0",
+  "description": "test task for YLab",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --open --config ./config/webpack.dev.config.js",
+    "build": "webpack --config ./config/webpack.prod.config"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pavlutkin/Ylab_test-task.git"
+  },
+  "author": "Alexander Pavlutkin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Pavlutkin/Ylab_test-task/issues"
+  },
+  "homepage": "https://github.com/Pavlutkin/Ylab_test-task#readme",
+  "dependencies": {
+    "isomorphic-fetch": "^2.2.1",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.6",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^1.0.0",
+    "es6-promise": "^4.2.4",
+    "html-webpack-plugin": "^3.2.0",
+    "less": "^3.8.1",
+    "less-loader": "^4.1.0",
+    "mini-css-extract-plugin": "^0.4.2",
+    "style-loader": "^0.22.1",
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.6",
+    "webpack-merge": "^4.1.4"
+  }
+}
