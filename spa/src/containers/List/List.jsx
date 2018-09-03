@@ -17,9 +17,7 @@ class ListComponent extends React.Component {
 
     getElementForRender(element) {
         const list = this.props.list;
-        console.log(list);
         const childrenList = list.filter(item => item.parent === element.id);
-        console.log(childrenList);
         return childrenList.length
         ? {
             id: element.id,

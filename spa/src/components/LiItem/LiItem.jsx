@@ -4,17 +4,13 @@ export default class LiItem extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            id: this.props.id,
+            title: this.props.title,
             edit: false
         };
         this.onClickTitle = this.onClickTitle.bind(this);
         this.onChangeTitle = this.onChangeTitle.bind(this);
-    }
-
-    componentDidMount() {
-        this.setState({
-            id: this.props.id,
-            title: this.props.title
-        })
+        this.onBlurTitle = this.onBlurTitle.bind(this);
     }
 
     onChangeTitle(e) {
@@ -26,16 +22,22 @@ export default class LiItem extends React.Component {
     onClickTitle(e) {
         e.stopPropagation();
         this.setState({
-            edit: !this.state.edit
-        })
+            edit: true
+        });
+        
+    }
+
+    onBlurTitle(e) {
+        this.setState({
+            edit: false
+        });
     }
 
     render() {
         const {id, title, edit} = this.state;
-
         return (
-            <li key={id} onClick={this.onClickTitle}>
-                {edit ? <input onChange={this.onChangeTitle} value={title}/> : title}
+            <li key={id} id={id} onClick={this.onClickTitle}>
+                {edit ? <input id={id} onBlur={this.onBlurTitle} onChange={this.onChangeTitle} value={title} selectionstart={title.length} autoFocus/> : title}
                 {this.props.children}
             </li>
         )
