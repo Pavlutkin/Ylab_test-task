@@ -44,7 +44,6 @@ export default class LiItem extends React.Component {
         this.setState({
             edit: false
         });
-        //ToDo чтобы не отправлял тех же значений
         const data = {
             id: this.state.id,
             title: this.state.title

@@ -7,12 +7,10 @@ import {getList, saveItem} from '../../store/reducer';
 class ListComponent extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {};
     }
 
     componentDidMount() {
         this.props.actions.getList();
-        
     }
 
     getElementForRender(element) {
