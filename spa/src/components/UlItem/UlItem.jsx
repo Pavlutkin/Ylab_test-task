@@ -7,7 +7,7 @@ export default class UlItem extends React.Component {
 
     render() {
         return (
-            <ul>
+            <ul className="container-list__list">
                 {this.props.children}
             </ul>
         )

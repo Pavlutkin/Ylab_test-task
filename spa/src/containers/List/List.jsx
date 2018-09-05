@@ -2,7 +2,7 @@ import React from "react";
 import {connect} from 'react-redux';
 import UlItem from '../../components/UlItem/UlItem';
 import LiItem from '../../components/LiItem/LiItem';
-import {getList} from '../../store/reducer';
+import {getList, saveItem} from '../../store/reducer';
 
 class ListComponent extends React.Component {
     constructor(props) {
@@ -18,8 +18,7 @@ class ListComponent extends React.Component {
     getElementForRender(element) {
         const list = this.props.list;
         const childrenList = list.filter(item => item.parent === element.id);
-        return childrenList.length
-        ? {
+        return childrenList.length ? {
             id: element.id,
             title: element.title,
             childrenList: childrenList.map(element => this.getElementForRender(element))
@@ -37,6 +36,7 @@ class ListComponent extends React.Component {
             key={id}
             id={id}
             title={title}
+            onSaveItem={this.props.actions.saveItem}
         >
             {this.props.children}
             <UlItem>{childrenList.map(element => this.renderElement(element))}</UlItem>
@@ -46,6 +46,7 @@ class ListComponent extends React.Component {
             key={id}
             id={id}
             title={title}
+            onSaveItem={this.props.actions.saveItem}
         >
             {this.props.children}
             </LiItem>
@@ -63,9 +64,11 @@ class ListComponent extends React.Component {
         const rootElement = this.getElementForRender(rootItem);
         
         return(
-            <UlItem>
-                {this.renderElement(rootElement)}
-            </UlItem>
+            <div className="container-list">
+                <UlItem>
+                    {this.renderElement(rootElement)}
+                </UlItem>
+            </div>
         )
     }
 }
@@ -83,6 +86,9 @@ const mapDispatchToProps = (dispatch) => {
         actions: {
             getList: () => {
                 dispatch(getList())
+            },
+            saveItem: (data) => {
+                dispatch(saveItem(data))
             }
         }
     }  

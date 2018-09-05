@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import List from "./containers/List/List";
 import {configureStore} from '../src/store/confStore';
-//import './style/index.less';
+import './style/index.less';
 
 const store = configureStore();
 

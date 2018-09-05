@@ -28,3 +28,11 @@ export function getList() {
             dispatch(receiveList(json));
     }
 }
+
+export function saveItem(data) {
+    return (dispatch) => {
+        return fetch('')
+        .then(response => response.json())
+        .then(json => {dispatch(receiveList(json))})
+    }
+}
